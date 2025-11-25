@@ -1,0 +1,204 @@
+{
+  "productos": [
+    {
+      "producto": "Shampoo Dove Hidratación Intensa",
+      "categoria": "Cuidado Personal",
+      "precio": 3500.50,
+      "marca": "Dove",
+      "durabilidad": "Media",
+      "rendimiento": "Alto",
+      "calidad": 4,
+      "caracteristicas": "Hidratación profunda, ideal para cabello seco. Aroma suave y duradero."
+    },
+    {
+      "producto": "Shampoo Pantene Pro-V Restauración",
+      "categoria": "Cuidado Personal",
+      "precio": 3750.99,
+      "marca": "Pantene",
+      "durabilidad": "Alta",
+      "rendimiento": "Medio",
+      "calidad": 5,
+      "caracteristicas": "Fórmula Pro-V, repara daños y da brillo. Recomendado para cabello dañado."
+    },
+    {
+      "producto": "Jabón de tocador Nivea Creme Care (Pack x3)",
+      "categoria": "Cuidado Personal",
+      "precio": 2400.00,
+      "marca": "Nivea",
+      "durabilidad": "Media",
+      "rendimiento": "Medio",
+      "calidad": 4,
+      "caracteristicas": "Enriquecido con crema hidratante, apto para piel sensible. Humectación 24hs."
+    },
+    {
+      "producto": "Crema dental Colgate Triple Acción",
+      "categoria": "Cuidado Personal",
+      "precio": 1200.00,
+      "marca": "Colgate",
+      "durabilidad": "Media",
+      "rendimiento": "Medio",
+      "calidad": 3,
+      "caracteristicas": "Protección anticaries, flúor y aliento fresco. El estándar del mercado."
+    },
+    {
+      "producto": "Detergente líquido Magistral Limón 750ml",
+      "categoria": "Limpieza del Hogar",
+      "precio": 2450.00,
+      "marca": "Magistral",
+      "durabilidad": "Alta",
+      "rendimiento": "Alto",
+      "calidad": 4,
+      "caracteristicas": "Máximo poder desengrasante, rinde más que otras marcas. Aroma cítrico intenso."
+    },
+    {
+      "producto": "Detergente líquido Ala Matic Ultra 750ml",
+      "categoria": "Limpieza del Hogar",
+      "precio": 2100.00,
+      "marca": "Ala",
+      "durabilidad": "Media",
+      "rendimiento": "Medio",
+      "calidad": 3,
+      "caracteristicas": "Buena espuma y limpieza diaria, económico. Ph neutro para las manos."
+    },
+    {
+      "producto": "Lavandina Clásica Ayudín 1L",
+      "categoria": "Limpieza del Hogar",
+      "precio": 1990.50,
+      "marca": "Ayudín",
+      "durabilidad": "Larga",
+      "rendimiento": "Alto",
+      "calidad": 5,
+      "caracteristicas": "Desinfecta el 99.9% de gérmenes. Concentración de cloro activa, la más potente."
+    },
+    {
+      "producto": "Jabón en polvo Skip Ultimate 800g",
+      "categoria": "Limpieza del Hogar",
+      "precio": 7890.90,
+      "marca": "Skip",
+      "durabilidad": "Media",
+      "rendimiento": "Alto",
+      "calidad": 5,
+      "caracteristicas": "Tecnología de disolución rápida, remueve manchas difíciles. Ideal para ropa de color."
+    },
+    {
+      "producto": "Fideos tirabuzón Lucchetti 500g",
+      "categoria": "Alimentos Secos y Despensa",
+      "precio": 990.00,
+      "marca": "Lucchetti",
+      "durabilidad": "Larga",
+      "rendimiento": "Medio",
+      "calidad": 3,
+      "caracteristicas": "Fideos de sémola de trigo candeal. Tiempo de cocción: 9 minutos."
+    },
+    {
+      "producto": "Fideos Spaghetti Matarazzo 500g",
+      "categoria": "Alimentos Secos y Despensa",
+      "precio": 1050.00,
+      "marca": "Matarazzo",
+      "durabilidad": "Larga",
+      "rendimiento": "Medio",
+      "calidad": 4,
+      "caracteristicas": "Mejor textura y no se pegan al cocinar. Clásicos spaghetti, mejor calidad de sémola."
+    },
+    {
+      "producto": "Arroz Gallo Oro 00000 1kg",
+      "categoria": "Alimentos Secos y Despensa",
+      "precio": 1400.50,
+      "marca": "Gallo",
+      "durabilidad": "Larga",
+      "rendimiento": "Alto",
+      "calidad": 4,
+      "caracteristicas": "Grano largo fino, ideal para risottos y paellas. No necesita ser lavado."
+    },
+    {
+      "producto": "Aceite de Girasol Cocinero 900ml",
+      "categoria": "Alimentos Secos y Despensa",
+      "precio": 2800.00,
+      "marca": "Cocinero",
+      "durabilidad": "Larga",
+      "rendimiento": "Medio",
+      "calidad": 3,
+      "caracteristicas": "Aceite apto para freír y cocinar. El más usado, sabor neutro."
+    },
+    {
+      "producto": "Leche entera La Serenísima Clásica 1L",
+      "categoria": "Lácteos y Refrigerados",
+      "precio": 1650.00,
+      "marca": "La Serenísima",
+      "durabilidad": "Corta",
+      "rendimiento": "Medio",
+      "calidad": 5,
+      "caracteristicas": "Fortificada con vitaminas A y D. Larga vida (UAT), el líder del mercado."
+    },
+    {
+      "producto": "Leche entera Sancor Larga Vida 1L",
+      "categoria": "Lácteos y Refrigerados",
+      "precio": 1590.00,
+      "marca": "Sancor",
+      "durabilidad": "Corta",
+      "rendimiento": "Medio",
+      "calidad": 4,
+      "caracteristicas": "Fuente de calcio, proceso UAT. Envase ecofriendly."
+    },
+    {
+      "producto": "Manteca Cremigal sin sal 200g",
+      "categoria": "Lácteos y Refrigerados",
+      "precio": 2100.50,
+      "marca": "Cremigal",
+      "durabilidad": "Media",
+      "rendimiento": "Medio",
+      "calidad": 3,
+      "caracteristicas": "100% láctea, ideal para repostería y cocción. Sabor suave."
+    },
+    {
+      "producto": "Queso cremoso Casancrem 300g",
+      "categoria": "Lácteos y Refrigerados",
+      "precio": 4500.75,
+      "marca": "Casancrem",
+      "durabilidad": "Corta",
+      "rendimiento": "Bajo",
+      "calidad": 5,
+      "caracteristicas": "Doble crema, textura suave y untable. Ideal para postres o untar."
+    },
+    {
+      "producto": "Gaseosa Coca-Cola Original 1.5L",
+      "categoria": "Bebidas y Jugos",
+      "precio": 3200.00,
+      "marca": "Coca-Cola",
+      "durabilidad": "Larga",
+      "rendimiento": "Medio",
+      "calidad": 5,
+      "caracteristicas": "Sabor original, con cafeína. La marca líder mundial."
+    },
+    {
+      "producto": "Gaseosa Sprite Lima-Limón 1.5L",
+      "categoria": "Bebidas y Jugos",
+      "precio": 3100.00,
+      "marca": "Sprite",
+      "durabilidad": "Larga",
+      "rendimiento": "Medio",
+      "calidad": 4,
+      "caracteristicas": "Sin cafeína, sabor refrescante de lima-limón. Ideal para mezclas."
+    },
+    {
+      "producto": "Agua mineral Villavicencio sin gas 2L",
+      "categoria": "Bebidas y Jugos",
+      "precio": 1150.50,
+      "marca": "Villavicencio",
+      "durabilidad": "Larga",
+      "rendimiento": "Alto",
+      "calidad": 4,
+      "caracteristicas": "Baja en sodio, agua pura de manantial. Origen de alta montaña."
+    },
+    {
+      "producto": "Jugo de naranja Baggio Único 1L",
+      "categoria": "Bebidas y Jugos",
+      "precio": 1850.90,
+      "marca": "Baggio",
+      "durabilidad": "Media",
+      "rendimiento": "Medio",
+      "calidad": 3,
+      "caracteristicas": "Saborizante artificial, listo para beber. Rico en Vitamina C."
+    }
+  ]
+}
