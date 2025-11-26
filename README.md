@@ -4,6 +4,7 @@ Mercadín es un bot conversacional para Telegram que compara productos del super
 El bot permite al usuario tomar mejores decisiones de compra mediante comparaciones claras, breves y visuales.
 
 🧠 Características principales
+
 ✔ Comparación entre dos productos
 
 Si están en la base → usa datos reales (precio, rendimiento, características…).
@@ -27,20 +28,37 @@ Si no → responde sin inventar valores.
 Usa memoria para recordar qué productos comparar.
 
 📁 Estructura del Proyecto
+
 bot_telegram/
+
 │
-├── main.py               # Lógica principal del bot + servidor Flask
-├── utils.py              # Funciones auxiliares (regex, JSON, modo, memoria…)
-├── productos.json        # Base de datos de productos reales
-├── .env                  # Tokens y API keys (no subir a GitHub)
-├── requirements.txt      # Dependencias del proyecto
+
+├── main.py                  # Logica principal del bot y servidor Flask
+
+├── utils.py                 # Funciones auxiliares: extraccion, busqueda, memoria
+
+├── productos.json           # Base de datos de productos reales
+
+├── requirements.txt         # Dependencias del proyecto
+
+├── .env                     # Variables de entorno (NO subir a GitHub)
+
 │
 ├── prompts/
-│   ├── modo1.txt         # Prompt para comparación general
-│   ├── modo2.txt         # Prompt para productos con datos reales
-│   ├── calidad_precio.txt# Prompt especial para calidad/precio
+
+│   ├── modo1.txt            # Comparacion general sin datos reales
+
+│   ├── modo2.txt            # Comparacion con datos reales del JSON
+
+│   └── calidad_precio.txt   # Prompt para la relacion calidad/precio
+
 │
-└── README.md
+├── README.md                # Documentacion del proyecto
+
+└── .gitignore               # Exclusiones para el repo
+
+
+
 
 ⚙️ Tecnologías utilizadas
 
