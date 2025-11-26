@@ -19,21 +19,3 @@ Formato de salida:
 
 🎯 **Recomendación final**
 Explicá brevemente cuál conviene según las diferencias comparadas.
-
-IMPORTANTE:
-- NO calcules relación calidad/precio A MENOS que el usuario lo pida explícitamente.
-- Pedidos explícitos incluyen frases como:
-  “relación calidad precio”, “relacion calidad precio”, “calidad/precio”, "calidad precio",
-  “qué conviene más”, “que conviene mas”, “cuál conviene más”, “cual conviene mas”,
-  “más conviene”, “mas conviene”, “rinde más por lo que sale”.
-- Si el usuario lo pide explícitamente, entonces SÍ calculá la relación calidad/precio usando los valores del JSON.
-
-
----
-
-Si calidad_precio: sí  
-→ calculá relación calidad/precio usando exclusivamente los valores reales del JSON.  
-→ Explicalo de forma clara, breve y útil.
-
-Si calidad_precio: no  
-→ NO calcules ni menciones relación calidad/precio.
