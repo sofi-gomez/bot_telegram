@@ -9,7 +9,8 @@ from utils import (
     cargar_productos,
     buscar_producto,
     extraer_productos,
-    decidir_modo
+    decidir_modo,
+    pidio_relacion_calidad_precio
 )
 
 # cargar variables del .env
@@ -25,6 +26,8 @@ productos_db = cargar_productos("productos.json")
 
 # flask server
 app = Flask(__name__)
+#Pequeña memoria
+contexto_usuarios = {} 
 
 # función para enviar mensaje a telegram
 def enviar_mensaje(chat_id, texto):
@@ -72,6 +75,7 @@ def webhook():
 
     # bienvenida
     if texto_usuario.lower() in ["/start", "hola", "buenas", "hey"]:
+        contexto_usuarios.pop(chat_id, None)
         bienvenida = (
             "¡Hola! Soy *Mercadín*, tu asistente para comparar productos del supermercado.\n\n"
             "Puedo ayudarte a decidir entre dos opciones. Escribí algo como:\n"
@@ -86,19 +90,40 @@ def webhook():
 
     # 1) extraer posibles productos
     prod_names = extraer_productos(texto_usuario)
-
     p1 = prod_names.get("p1")
     p2 = prod_names.get("p2")
 
+    # Si el usuario envía productos, los guardamos en el contexto
+    if p1 and p2:
+        contexto_usuarios[chat_id] = {
+        "p1": p1,
+        "p2": p2
+    }
+
+
+    # Caso: el usuario no envió productos
     if not p1 or not p2:
-        enviar_mensaje(
-            chat_id,
-            "Para poder ayudarte necesito *dos productos*. Probá escribiendo:\n"
-            "•  Coca-Cola vs Sprite\n"
-            "• Leche entera La Serenísima contra Leche entera Sancor Larga Vida\n\n"
-            "Estoy listo cuando quieras."
-        )
-        return {"ok": True}
+    
+    # Pero sí pidió calidad/precio
+        # PERO sí pide calidad/precio → usar productos previos
+        if pidio_relacion_calidad_precio(texto_usuario):
+            if chat_id in contexto_usuarios:
+                prev = contexto_usuarios[chat_id]
+                p1 = prev["p1"]
+                p2 = prev["p2"]
+            else:
+                enviar_mensaje(chat_id, "Decime primero qué dos productos querés comparar 😊")
+                return {"ok": True}
+
+        else:
+            # No hay productos ni pedido especial
+            enviar_mensaje(
+                chat_id,
+                "Necesito *dos productos* para comparar.\nEjemplos:\n"
+                "• Coca-Cola vs Sprite\n"
+                "• Dove vs Pantene"
+            )
+            return {"ok": True}
 
     # 2) buscar en la base de datos
     prod1 = buscar_producto(p1, productos_db)
@@ -114,7 +139,8 @@ def webhook():
     # 3) decidir modo
     modo = decidir_modo(prod1, prod2)
 
-    # 4) armar prompt
+          # 4) armar prompt
+
     if modo == 2:
         with open("prompts/modo2.txt", "r", encoding="utf-8") as f:
             base_prompt = f.read()
@@ -142,7 +168,6 @@ comparar:
 - {p1}
 - {p2}
 """
-
     # 5) llamar a gemini
     respuesta = llamar_gemini(prompt)
 

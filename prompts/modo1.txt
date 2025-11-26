@@ -21,3 +21,12 @@ FORMATO:
 
 *Recomendación final:*
 Debe ser directa, muy breve y basada en calidad/rendimiento.
+
+
+---
+
+Si calidad_precio: sí  
+→ explicá cuál conviene según el desempeño general, pero sin inventar precios ni valores numéricos.
+
+Si calidad_precio: no  
+→ NO menciones relación calidad/precio.

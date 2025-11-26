@@ -1,17 +1,16 @@
 import json
 import re
 
-# carga el archivo json de productos
+# --------------------
+# Cargar archivo productos
+# --------------------
 def cargar_productos(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
             
-            # Si el JSON tiene la forma {"productos": [...]}
             if "productos" in data:
                 return data["productos"]
-            
-            # Si ya es una lista, devolverla como está
             return data
 
     except Exception as e:
@@ -19,7 +18,9 @@ def cargar_productos(path):
         return []
 
 
-# busca producto por nombre (búsqueda flexible)
+# --------------------
+# Buscar producto
+# --------------------
 def buscar_producto(nombre, productos_db):
     nombre = nombre.lower().strip()
 
@@ -30,25 +31,41 @@ def buscar_producto(nombre, productos_db):
     return None
 
 
-# extrae productos desde el mensaje usando regex simple
+# --------------------
+# Extraer productos desde texto
+# --------------------
 def extraer_productos(texto):
     texto = texto.lower()
 
-    # extrae palabras separadas por "vs", "o", "contra", "-"
     patron = r"(.+?)\s+(vs|vs\.|o|ó|contra|-|vs\s+)\s+(.+)"
     match = re.search(patron, texto)
 
     if not match:
         return {"p1": None, "p2": None}
 
-    p1 = match.group(1).strip()
-    p2 = match.group(3).strip()
+    return {
+        "p1": match.group(1).strip(),
+        "p2": match.group(3).strip()
+    }
 
-    return {"p1": p1, "p2": p2}
+# --------------------
+# Detectar si el usuario pidió relación calidad/precio
+# --------------------
+def pidio_relacion_calidad_precio(texto):
+    texto = texto.lower()
+    claves = [
+        "relación calidad precio", "calidad precio","relacion calidad precio",
+        "calidad/precio", "cual conviene", "cuál conviene",
+        "que conviene mas", "qué conviene mas",
+        "mas conviene", "más conviene",
+        "rinde más por lo que sale", "rinde mas por lo que sale"
+    ]
+    return any(frase in texto for frase in claves)
 
-
-# decide el modo de comparación
+# --------------------
+# Decidir modo
+# --------------------
 def decidir_modo(prod1, prod2):
     if prod1 and prod2:
-        return 2  # ambos existen: modo datos reales
-    return 1       # modo general
+        return 2
+    return 1

@@ -81,7 +81,7 @@
       "caracteristicas": "Tecnología de disolución rápida, remueve manchas difíciles. Ideal para ropa de color."
     },
     {
-      "producto": "Fideos tirabuzón Lucchetti 500g",
+      "producto": "Fideos tirabuzón Lucchetti",
       "categoria": "Alimentos Secos y Despensa",
       "precio": 990.00,
       "marca": "Lucchetti",
@@ -91,7 +91,7 @@
       "caracteristicas": "Fideos de sémola de trigo candeal. Tiempo de cocción: 9 minutos."
     },
     {
-      "producto": "Fideos Spaghetti Matarazzo 500g",
+      "producto": "Fideos Spaghetti Matarazzo ",
       "categoria": "Alimentos Secos y Despensa",
       "precio": 1050.00,
       "marca": "Matarazzo",
@@ -101,7 +101,7 @@
       "caracteristicas": "Mejor textura y no se pegan al cocinar. Clásicos spaghetti, mejor calidad de sémola."
     },
     {
-      "producto": "Arroz Gallo Oro 00000 1kg",
+      "producto": "Arroz Gallo Oro",
       "categoria": "Alimentos Secos y Despensa",
       "precio": 1400.50,
       "marca": "Gallo",
@@ -111,7 +111,7 @@
       "caracteristicas": "Grano largo fino, ideal para risottos y paellas. No necesita ser lavado."
     },
     {
-      "producto": "Aceite de Girasol Cocinero 900ml",
+      "producto": "Aceite de Girasol Cocinero ",
       "categoria": "Alimentos Secos y Despensa",
       "precio": 2800.00,
       "marca": "Cocinero",
@@ -131,7 +131,7 @@
       "caracteristicas": "Fortificada con vitaminas A y D. Larga vida (UAT), el líder del mercado."
     },
     {
-      "producto": "Leche entera Sancor Larga Vida 1L",
+      "producto": "Leche entera Sancor Larga Vida",
       "categoria": "Lácteos y Refrigerados",
       "precio": 1590.00,
       "marca": "Sancor",
@@ -179,26 +179,6 @@
       "rendimiento": "Medio",
       "calidad": 4,
       "caracteristicas": "Sin cafeína, sabor refrescante de lima-limón. Ideal para mezclas."
-    },
-    {
-      "producto": "Agua mineral Villavicencio sin gas 2L",
-      "categoria": "Bebidas y Jugos",
-      "precio": 1150.50,
-      "marca": "Villavicencio",
-      "durabilidad": "Larga",
-      "rendimiento": "Alto",
-      "calidad": 4,
-      "caracteristicas": "Baja en sodio, agua pura de manantial. Origen de alta montaña."
-    },
-    {
-      "producto": "Jugo de naranja Baggio Único 1L",
-      "categoria": "Bebidas y Jugos",
-      "precio": 1850.90,
-      "marca": "Baggio",
-      "durabilidad": "Media",
-      "rendimiento": "Medio",
-      "calidad": 3,
-      "caracteristicas": "Saborizante artificial, listo para beber. Rico en Vitamina C."
     }
   ]
 }
