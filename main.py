@@ -76,8 +76,8 @@ def webhook():
         bienvenida = (
             "¡Hola! Soy *Mercadín*, tu asistente para comparar productos.\n\n"
             "Podés escribir cosas como:\n"
-            "• `Coca-Cola vs Pepsi`\n"
-            "• `Shampoo Dove contra Pantene`\n\n"
+            "`Coca-Cola vs Pepsi`\n"
+            "`Shampoo Dove contra Pantene`\n\n"
             "También podés preguntar *calidad/precio* después de comparar.\n\n¿En qué te ayudo?"
         )
         enviar_mensaje(chat_id, bienvenida)
