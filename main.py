@@ -5,8 +5,6 @@ from flask import Flask, request
 import requests
 from google import genai
 
-
-
 from utils import (
     cargar_productos,
     buscar_producto,
@@ -28,15 +26,16 @@ productos_db = cargar_productos("productos.json")
 # flask server
 app = Flask(__name__)
 
-
 # función para enviar mensaje a telegram
 def enviar_mensaje(chat_id, texto):
-    data = {"chat_id": chat_id, "text": texto}
+    data = {
+        "chat_id": chat_id,
+        "text": texto,
+        "parse_mode": "Markdown"   # mejora display
+    }
     requests.post(TELEGRAM_URL, json=data)
 
-
 # función para llamar a gemini
-
 def llamar_gemini(prompt):
     client = genai.Client(api_key=GEMINI_API_KEY)
 
@@ -50,7 +49,11 @@ def llamar_gemini(prompt):
 
     except Exception as e:
         print("🔍 ERROR GEMINI:", e)
-        return "⚠️ Hubo un error al generar la respuesta. Revisá tu API key o intentá más tarde."
+        return (
+            "Hubo un problema al generar la respuesta. "
+            "Intentá nuevamente en unos segundos."
+        )
+
 
 # endpoint del webhook
 @app.route("/webhook", methods=["POST"])
@@ -64,7 +67,21 @@ def webhook():
     texto_usuario = data["message"].get("text", "")
 
     if not texto_usuario:
-        enviar_mensaje(chat_id, "no entendí el mensaje")
+        enviar_mensaje(chat_id, "No entendí el mensaje.")
+        return {"ok": True}
+
+    # bienvenida
+    if texto_usuario.lower() in ["/start", "hola", "buenas", "hey"]:
+        bienvenida = (
+            "¡Hola! Soy *Mercadín*, tu asistente para comparar productos del supermercado.\n\n"
+            "Puedo ayudarte a decidir entre dos opciones. Escribí algo como:\n"
+            "• *Shampoo Dove vs Shampoo Pantene*\n"
+            "• *Detergente Magistral contra Detergente Ala*\n\n"
+            "Si los productos existen en mi base, uso esos datos. Si no, igual puedo "
+            "hacer una comparación general.\n\n"
+            "¿Qué querés comparar hoy?"
+        )
+        enviar_mensaje(chat_id, bienvenida)
         return {"ok": True}
 
     # 1) extraer posibles productos
@@ -74,12 +91,25 @@ def webhook():
     p2 = prod_names.get("p2")
 
     if not p1 or not p2:
-        enviar_mensaje(chat_id, "necesito dos productos para comparar")
+        enviar_mensaje(
+            chat_id,
+            "Para poder ayudarte necesito *dos productos*. Probá escribiendo:\n"
+            "•  Coca-Cola vs Sprite\n"
+            "• Leche entera La Serenísima contra Leche entera Sancor Larga Vida\n\n"
+            "Estoy listo cuando quieras."
+        )
         return {"ok": True}
 
     # 2) buscar en la base de datos
     prod1 = buscar_producto(p1, productos_db)
     prod2 = buscar_producto(p2, productos_db)
+
+    # Si falta alguno, avisar pero seguir con el flujo (modo 1)
+    if not prod1 or not prod2:
+        enviar_mensaje(
+            chat_id,
+            "Estos productos no están en mi base, pero te daré una comparación general:"
+        )
 
     # 3) decidir modo
     modo = decidir_modo(prod1, prod2)
@@ -115,7 +145,6 @@ comparar:
 
     # 5) llamar a gemini
     respuesta = llamar_gemini(prompt)
-
 
     # 6) enviar respuesta a telegram
     enviar_mensaje(chat_id, respuesta)
